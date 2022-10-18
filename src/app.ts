@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import OutageController from "./outages/outageController";
+import OutageController from "./outage/outageController";
 import SiteInfoController from './siteInfo/siteInfoController';
 
 async function main() {
