@@ -10,13 +10,15 @@ export default class OutageController {
   private parseISOStringsToDates = (response): Outage => {
     const begin = new Date(Date.parse(response.begin));
     const end = new Date(Date.parse(response.end));
-
+    
     return { id: response.id, begin, end };
   };
-
+  
+  outagesRequestUrl = `${process.env.BASE_URL}/outages`;
+  
   async getOutages(): Promise<Outage[]> {
     const response = await axios
-      .get(process.env.BASE_URL, {
+      .get(this.outagesRequestUrl, {
         headers: { "x-api-key": process.env.API_KEY },
       })
       .then((response) => response.data)
