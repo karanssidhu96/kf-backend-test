@@ -1,4 +1,8 @@
 fileignoreconfig:
+- filename: .env
+  checksum: 6c283f48a22a023460d76d68e84008a58fe8f718e594cd4ee7ba7dbf7fa1db70
 - filename: package-lock.json
-  checksum: d4a119832a607e4b766b7f42152a80cd1bb5477d200bc67bdc7f432bed38582b
+  checksum: 70cf6c35d3b289a5e0435b85e543849ec9b3a1e85b385ebda9ed12f430305416
+- filename: src/outages/outageController.ts
+  checksum: 01ba96c557c1660f36c33405cecab1c250ef256285e33846ce8ae4cb0d839035
 version: ""
