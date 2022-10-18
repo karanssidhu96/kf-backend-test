@@ -4,6 +4,27 @@ jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe("OutageController", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  test("Should throw error if API returns non 200 status code", async () => {
+    mockedAxios.get.mockRejectedValue({
+      response: {
+        status: 500,
+      },
+      message: "Something went wrong",
+    });
+
+    const outageController = new OutageController();
+    await expect(async () => {
+      await outageController.getOutages();
+    }).rejects.toThrow(
+      "Outages endpoint returned status code 500 with message: Something went wrong"
+    );
+    expect(mockedAxios.get).toHaveBeenCalledTimes(1);
+  });
+
   test("should successfully return list of outages", async () => {
     const expectedResult = [
       {

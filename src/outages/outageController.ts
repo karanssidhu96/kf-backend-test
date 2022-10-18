@@ -19,7 +19,12 @@ export default class OutageController {
       .get(process.env.BASE_URL, {
         headers: { "x-api-key": process.env.API_KEY },
       })
-      .then((response) => response.data);
+      .then((response) => response.data)
+      .catch((error) => {
+        throw new Error(
+          `Outages endpoint returned status code ${error.response.status} with message: ${error.message}`
+        );
+      });
 
     const outages: Outage[] = response.map((outage) =>
       this.parseISOStringsToDates(outage)
