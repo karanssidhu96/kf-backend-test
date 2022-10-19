@@ -30,7 +30,7 @@ export default class SiteOutageService {
     return outages.filter(
       (outage) =>
         norwichPearTreeDeviceIds.includes(outage.id) &&
-        outage.begin > START_OF_2022
+        outage.begin >= START_OF_2022
     );
   };
 

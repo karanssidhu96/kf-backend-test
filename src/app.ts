@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import OutageController from "./outage/outageController";
 import SiteInfoController from './siteInfo/siteInfoController';
+import SiteOutageService from './siteOutage/siteOutageService';
 
 async function main() {
     dotenv.config();
@@ -15,6 +16,11 @@ async function main() {
     const siteInfo = await siteInfoController.getNorwichPearTreeSiteInfo();
 
     console.log(siteInfo);
+
+    const siteOutageService = new SiteOutageService();
+    const siteOutages = await siteOutageService.getOutagesForNorwichPearTreeSite();
+
+    console.log(JSON.stringify(siteOutages));
 }
   
 if (require.main === module) {

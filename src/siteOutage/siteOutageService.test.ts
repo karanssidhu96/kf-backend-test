@@ -12,6 +12,11 @@ const mockGetOutages = jest.fn().mockResolvedValue([
     end: new Date(Date.parse("2022-06-17T00:11:49.886Z")),
   },
   {
+    id: "5",
+    begin: new Date(Date.parse("2022-01-01T00:00:00.000Z")),
+    end: new Date(Date.parse("2022-06-17T00:11:49.886Z")),
+  },
+  {
     id: "3",
     begin: new Date(Date.parse("2021-04-06T17:12:40.578Z")),
     end: new Date(Date.parse("2022-10-21T17:58:21.341Z")),
@@ -71,6 +76,12 @@ describe("SiteOutageService", () => {
         id: "5",
         name: "Battery 5",
         begin: new Date(Date.parse("2022-01-26T15:59:10.732Z")),
+        end: new Date(Date.parse("2022-06-17T00:11:49.886Z")),
+      },
+      {
+        id: "5",
+        name: "Battery 5",
+        begin: new Date(Date.parse("2022-01-01T00:00:00.000Z")),
         end: new Date(Date.parse("2022-06-17T00:11:49.886Z")),
       },
     ];
