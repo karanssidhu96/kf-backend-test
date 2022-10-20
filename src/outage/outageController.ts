@@ -10,12 +10,12 @@ export default class OutageController {
   private parseISOStringsToDates = (response): Outage => {
     const begin = new Date(Date.parse(response.begin));
     const end = new Date(Date.parse(response.end));
-    
+
     return { id: response.id, begin, end };
   };
-  
+
   outagesRequestUrl = `${process.env.BASE_URL}/outages`;
-  
+
   async getOutages(): Promise<Outage[]> {
     const response = await axios
       .get(this.outagesRequestUrl, {
@@ -28,9 +28,6 @@ export default class OutageController {
         );
       });
 
-    const outages: Outage[] = response.map((outage) =>
-      this.parseISOStringsToDates(outage)
-    );
-    return outages;
+    return response.map((outage) => this.parseISOStringsToDates(outage));
   }
 }

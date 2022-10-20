@@ -1,12 +1,6 @@
 import { Outage } from "../outage/outageController";
 import { Device } from "../siteInfo/siteInfoController";
-
-export type SiteOutage = {
-  id: string;
-  name: string;
-  begin: Date;
-  end: Date;
-};
+import { SiteOutage } from "./siteOutageTypes";
 
 const START_OF_2022 = new Date(`2022-01-01T00:00:00.000Z`);
 

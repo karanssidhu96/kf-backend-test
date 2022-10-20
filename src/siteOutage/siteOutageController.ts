@@ -1,7 +1,6 @@
 import axios from "axios";
-import { SiteOutage } from "./siteOutageService";
-
-const NORWICH_PEAR_TREE_SITE_ID = "norwich-pear-tree";
+import { NORWICH_PEAR_TREE_SITE_ID } from "../utils/helpers";
+import { SiteOutage } from "./siteOutageTypes";
 
 export default class SiteOutageController {
   async postNorwichPearTreeSiteOutages(siteOutages: SiteOutage[]) {

@@ -1,10 +1,8 @@
 import axios from "axios";
+import { TEST_API_KEY, TEST_URL } from "../utils/testHelpers";
 import OutageController from "./outageController";
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
-
-const TEST_URL = "https://fake.io";
-const TEST_API_KEY = "12345689";
 
 process.env.BASE_URL = TEST_URL;
 process.env.API_KEY = TEST_API_KEY;
@@ -28,6 +26,7 @@ describe("OutageController", () => {
     }).rejects.toThrow(
       "Outages endpoint returned status code 500 with message: Something went wrong"
     );
+
     expect(mockedAxios.get).toHaveBeenCalledTimes(1);
     expect(mockedAxios.get).toHaveBeenCalledWith(`${TEST_URL}/outages`, {
       headers: { "x-api-key": TEST_API_KEY },
@@ -76,6 +75,7 @@ describe("OutageController", () => {
 
     const outageController = new OutageController();
     const result = await outageController.getOutages();
+
     expect(mockedAxios.get).toHaveBeenCalledTimes(1);
     expect(mockedAxios.get).toHaveBeenCalledWith(`${TEST_URL}/outages`, {
       headers: { "x-api-key": TEST_API_KEY },

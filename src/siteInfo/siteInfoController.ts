@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const NORWICH_PEAR_TREE_SITE_ID = 'norwich-pear-tree';
+import { NORWICH_PEAR_TREE_SITE_ID } from "../utils/helpers";
 
 export type Device = {
   id: string;

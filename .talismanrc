@@ -17,4 +17,6 @@ fileignoreconfig:
   checksum: 5c62f10ed6148676ddf51ca7b3e1f7656307e81bc45a6e279887df9631158e11
 - filename: src/app.test.ts
   checksum: c58653c71fd517563fea2bc1967b0512d86ba0761fd621db3e51a8a337a130c8
+- filename: src/utils/testHelpers.ts
+  checksum: 6e3e0152ce2d59ef23e8b676dd3d6dba0075fde6e29b7f7bffb73b4bf93bdb52
 version: ""

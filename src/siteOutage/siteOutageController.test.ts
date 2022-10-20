@@ -1,11 +1,9 @@
 import axios from "axios";
+import { TEST_API_KEY, TEST_URL } from "../utils/testHelpers";
 import SiteOutageController from "./siteOutageController";
-import { SiteOutage } from "./siteOutageService";
+import { SiteOutage } from "./siteOutageTypes";
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
-
-const TEST_URL = "https://fake.io";
-const TEST_API_KEY = "12345689";
 
 process.env.BASE_URL = TEST_URL;
 process.env.API_KEY = TEST_API_KEY;
