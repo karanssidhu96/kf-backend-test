@@ -1,5 +1,5 @@
-import OutageController, { Outage } from "../outage/outageController";
-import SiteInfoController, { Device } from "../siteInfo/siteInfoController";
+import { Outage } from "../outage/outageController";
+import { Device } from "../siteInfo/siteInfoController";
 
 export type SiteOutage = {
   id: string;
@@ -11,13 +11,7 @@ export type SiteOutage = {
 const START_OF_2022 = new Date(`2022-01-01T00:00:00.000Z`);
 
 export default class SiteOutageService {
-  async getOutagesForNorwichPearTreeSite(): Promise<SiteOutage[]> {
-    const outageController = new OutageController();
-    const siteInfoController = new SiteInfoController();
-
-    const outages = await outageController.getOutages();
-    const { devices } = await siteInfoController.getNorwichPearTreeSiteInfo();
-
+  async getOutagesForSite(outages: Outage[], devices: Device[]): Promise<SiteOutage[]> {
     const filteredOutages = this.filterOutages(outages, devices);
 
     return this.decorateOutagesWithDeviceName(filteredOutages, devices);
