@@ -1,26 +1,17 @@
 import dotenv from 'dotenv';
-import OutageController from "./outage/outageController";
-import SiteInfoController from './siteInfo/siteInfoController';
+import SiteOutageController from './siteOutage/siteOutageController';
 import SiteOutageService from './siteOutage/siteOutageService';
 
-async function main() {
+export async function main() {
     dotenv.config();
-    const outageController = new OutageController();
-    const siteInfoController = new SiteInfoController();
-
-    const outages = await outageController.getOutages();
-
-    console.log(outages.length);
-    console.log(outages[0]);
-
-    const siteInfo = await siteInfoController.getNorwichPearTreeSiteInfo();
-
-    console.log(siteInfo);
 
     const siteOutageService = new SiteOutageService();
-    const siteOutages = await siteOutageService.getOutagesForNorwichPearTreeSite();
+    const siteOutageController = new SiteOutageController();
 
-    console.log(JSON.stringify(siteOutages));
+    const siteOutages = await siteOutageService.getOutagesForNorwichPearTreeSite();
+    const response = await siteOutageController.postNorwichPearTreeSiteOutages(siteOutages);
+
+    console.log(`Post to site outage endpoint returned status code: ${response.status}`)
 }
   
 if (require.main === module) {

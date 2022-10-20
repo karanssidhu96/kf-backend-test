@@ -3,6 +3,12 @@ import SiteInfoController from "./siteInfoController";
 jest.mock("axios");
 const mockedAxios = axios as jest.Mocked<typeof axios>;
 
+const TEST_URL = "https://fake.io";
+const TEST_API_KEY = "12345689";
+
+process.env.BASE_URL = TEST_URL;
+process.env.API_KEY = TEST_API_KEY;
+
 describe("SiteInfoController", () => {
   afterEach(() => {
     jest.clearAllMocks();
@@ -23,6 +29,9 @@ describe("SiteInfoController", () => {
       "Site info endpoint returned status code 500 with message: Something went wrong"
     );
     expect(mockedAxios.get).toHaveBeenCalledTimes(1);
+    expect(mockedAxios.get).toHaveBeenCalledWith(`${TEST_URL}/site-info/norwich-pear-tree`, {
+      headers: { "x-api-key": TEST_API_KEY },
+    });
   });
 
   test("should successfully return site info for norwich pear tree site", async () => {
@@ -49,6 +58,9 @@ describe("SiteInfoController", () => {
     const siteInfoController = new SiteInfoController();
     const result = await siteInfoController.getNorwichPearTreeSiteInfo();
     expect(mockedAxios.get).toHaveBeenCalledTimes(1);
+    expect(mockedAxios.get).toHaveBeenCalledWith(`${TEST_URL}/site-info/norwich-pear-tree`, {
+      headers: { "x-api-key": TEST_API_KEY },
+    });
     expect(result).toEqual(expectedResult);
   });
 });

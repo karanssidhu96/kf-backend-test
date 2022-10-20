@@ -11,4 +11,10 @@ fileignoreconfig:
   checksum: c075628bb9b878e29ac04058d456988dfe6c4045764d89cb2132738d212a1b74
 - filename: src/siteOutage/siteOutageController.test.ts
   checksum: 4706dbfb39be68748f3e7fb9fd6296162d050467f3663dd189d257c106cf83ed
+- filename: src/siteInfo/siteInfoController.test.ts
+  checksum: eefc97c666c79ec8ae2091025be53b3316bc22326c6ce1d558f3675721448465
+- filename: src/outage/outageController.test.ts
+  checksum: 5c62f10ed6148676ddf51ca7b3e1f7656307e81bc45a6e279887df9631158e11
+- filename: src/app.test.ts
+  checksum: c58653c71fd517563fea2bc1967b0512d86ba0761fd621db3e51a8a337a130c8
 version: ""

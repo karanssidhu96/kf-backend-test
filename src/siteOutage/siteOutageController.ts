@@ -8,7 +8,7 @@ export default class SiteOutageController {
     const siteOutagesRequestUrl = `${process.env.BASE_URL}/site-outages/${NORWICH_PEAR_TREE_SITE_ID}`;
 
     return axios
-      .post(siteOutagesRequestUrl, JSON.stringify(siteOutages), {
+      .post(siteOutagesRequestUrl, siteOutages, {
         headers: { "x-api-key": process.env.API_KEY },
       })
       .then(response => response)

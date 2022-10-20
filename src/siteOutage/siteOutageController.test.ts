@@ -51,7 +51,7 @@ describe("SiteOutageController", () => {
     expect(mockedAxios.post).toHaveBeenCalledTimes(1);
     expect(mockedAxios.post).toHaveBeenCalledWith(
       `${TEST_URL}/site-outages/norwich-pear-tree`,
-      JSON.stringify(siteOutagePayload),
+      siteOutagePayload,
       {
         headers: { "x-api-key": TEST_API_KEY },
       }
